@@ -1,9 +1,297 @@
 /*
 Theme Name:   Storefront Child — Amorino Click & Collect
-Theme URI:    https://github.com/
-Description:  Thème enfant de Storefront — SAé 3.01, BUT MMI, IUT du Limousin.
+Theme URI:    https://github.com/quentinburlotpro-rgb/storefront-child
+Description:  Thème enfant de Storefront — SAé 3.01, BUT MMI, IUT du Limousin. Charte Amorino.
 Author:       Quentin Burlot
 Template:     storefront
-Version:      1.0.0
+Version:      1.1.0
 Text Domain:  storefront-child
 */
+
+/* ==========================================================================
+   1. Tokens — charte relevée sur amorino.com (cf. design system)
+   ========================================================================== */
+:root {
+  --am-noir: #100b0c;
+  --am-noir-700: #2e2627;
+  --am-gris: #383838;
+  --am-gris-500: #6e6869;
+  --am-peche: #e9bc96;
+  --am-peche-300: #f3d3b8;
+  --am-rose: #fde8dc;
+  --am-gris-50: #f9f9f9;
+  --am-blanc: #ffffff;
+  --am-bordure: #ece4df;
+  --am-success: #3e7d4f;
+  --am-danger: #b3261e;
+
+  --am-display: "Silver South Serif", "Cormorant Garamond", Georgia, serif;
+  --am-body: "Avenir Next LT Pro", "Avenir Next", "Nunito Sans", "Helvetica Neue", Arial, sans-serif;
+
+  --am-r-sm: 6px;
+  --am-r-md: 14px;
+  --am-r-pill: 30px;
+}
+
+/* ==========================================================================
+   2. Base
+   ========================================================================== */
+body,
+button, input, select, textarea {
+  font-family: var(--am-body);
+  color: var(--am-noir);
+}
+body { background: var(--am-blanc); }
+
+h1, h2, h3, h4,
+.entry-title,
+.page-title,
+.woocommerce-products-header__title,
+.product_title {
+  font-family: var(--am-display);
+  font-weight: 500;
+  letter-spacing: .02em;
+  color: var(--am-noir);
+}
+h1, .entry-title, .page-title, .woocommerce-products-header__title, .product_title {
+  text-transform: uppercase;
+}
+
+a { color: var(--am-noir); }
+a:hover, a:focus { color: var(--am-noir-700); }
+:focus-visible { outline: 3px solid var(--am-peche); outline-offset: 2px; }
+
+/* ==========================================================================
+   3. En-tête
+   ========================================================================== */
+.site-header {
+  background: var(--am-blanc);
+  border-bottom: 1px solid var(--am-bordure);
+  padding-top: 1.2em;
+}
+.site-header .site-branding { margin-bottom: 1em; }
+.amorino-logo { display: inline-flex; align-items: center; }
+.amorino-logo img { height: 40px; width: auto; display: block; }
+
+.main-navigation ul.menu > li > a,
+.main-navigation ul.nav-menu > li > a {
+  color: var(--am-noir);
+  font-size: .875rem;
+  font-weight: 500;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  border-bottom: 2px solid transparent;
+}
+.main-navigation ul.menu > li.current-menu-item > a,
+.main-navigation ul.menu > li > a:hover {
+  border-bottom-color: var(--am-peche);
+}
+.storefront-primary-navigation { background: var(--am-blanc); }
+
+.site-header-cart .cart-contents { color: var(--am-noir); }
+.site-header-cart .cart-contents .count {
+  background: var(--am-peche);
+  color: var(--am-noir);
+  border-radius: var(--am-r-pill);
+  opacity: 1;
+  padding: 0 .5em;
+}
+
+/* ==========================================================================
+   4. Boutons — pilule, capitales (relevé : rayon 30px, 14px)
+   ========================================================================== */
+button, input[type="button"], input[type="reset"], input[type="submit"],
+.button, .added_to_cart, .widget a.button,
+.woocommerce a.button, .woocommerce button.button {
+  background: var(--am-noir);
+  border: 1.5px solid var(--am-noir);
+  color: var(--am-blanc);
+  border-radius: var(--am-r-pill);
+  font-family: var(--am-body);
+  font-size: .875rem;
+  font-weight: 500;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  padding: .85em 1.6em;
+  min-height: 44px;
+}
+button:hover, input[type="submit"]:hover, .button:hover,
+.woocommerce a.button:hover, .woocommerce button.button:hover {
+  background: var(--am-noir-700);
+  border-color: var(--am-noir-700);
+  color: var(--am-blanc);
+}
+button.alt, .button.alt, .single_add_to_cart_button, .checkout-button {
+  background: var(--am-noir);
+  border-color: var(--am-noir);
+}
+.button.secondary, .woocommerce a.button.secondary {
+  background: transparent;
+  color: var(--am-noir);
+}
+
+/* ==========================================================================
+   5. Formulaires
+   ========================================================================== */
+input[type="text"], input[type="email"], input[type="tel"], input[type="number"],
+input[type="password"], input[type="search"], select, textarea, .input-text {
+  background: var(--am-blanc);
+  border: 1.5px solid var(--am-bordure);
+  border-radius: var(--am-r-sm);
+  box-shadow: none;
+  color: var(--am-noir);
+}
+input:focus, select:focus, textarea:focus, .input-text:focus {
+  border-color: var(--am-noir);
+  background: var(--am-blanc);
+}
+
+/* ==========================================================================
+   6. Grille produits (boutique, catégories, accueil)
+   ========================================================================== */
+ul.products li.product {
+  background: var(--am-blanc);
+  border: 1px solid var(--am-bordure);
+  border-radius: var(--am-r-md);
+  overflow: hidden;
+  padding-bottom: 1.2em;
+  text-align: left;
+  transition: box-shadow .15s ease, transform .15s ease;
+}
+ul.products li.product:hover {
+  box-shadow: 0 8px 24px rgb(16 11 12 / .10);
+  transform: translateY(-2px);
+}
+ul.products li.product img {
+  margin: 0 0 1em;
+  border-radius: 0;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+ul.products li.product .woocommerce-loop-product__title,
+ul.products li.product h2 {
+  font-family: var(--am-display);
+  font-size: 1.35rem;
+  font-weight: 600;
+  text-transform: none;
+  padding: 0 1rem;
+  margin-bottom: .3em;
+}
+ul.products li.product .price {
+  display: block;
+  padding: 0 1rem;
+  color: var(--am-noir);
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+ul.products li.product .button {
+  margin: .8em 1rem 0;
+  font-size: .75rem;
+  padding: .7em 1.2em;
+  min-height: 40px;
+}
+.onsale {
+  background: var(--am-peche);
+  color: var(--am-noir);
+  border: 0;
+  border-radius: var(--am-r-pill);
+  font-weight: 700;
+}
+.price del { color: var(--am-gris-500); }
+.price ins { color: var(--am-danger); font-weight: 700; }
+
+.woocommerce-products-header { padding-bottom: 1em; }
+.woocommerce-result-count, .woocommerce-ordering select { color: var(--am-gris-500); }
+.storefront-sorting { border-bottom: 1px solid var(--am-bordure); }
+
+/* ==========================================================================
+   7. Fiche produit
+   ========================================================================== */
+.single-product div.product .woocommerce-product-gallery img { border-radius: 24px; }
+.single-product div.product .product_title { font-size: clamp(2rem, 4vw, 3.2rem); line-height: 1.05; }
+.single-product div.product p.price {
+  color: var(--am-noir);
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+.single-product div.product .woocommerce-product-details__short-description {
+  color: var(--am-gris);
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+.single-product div.product form.cart .quantity .qty {
+  border-radius: var(--am-r-pill);
+  text-align: center;
+}
+.woocommerce-tabs ul.tabs li a { color: var(--am-gris-500); }
+.woocommerce-tabs ul.tabs li.active a { color: var(--am-noir); }
+.woocommerce-breadcrumb { color: var(--am-gris-500); font-size: .875rem; }
+.woocommerce-breadcrumb a { color: var(--am-gris-500); }
+.stock.in-stock { color: var(--am-success); }
+.stock.out-of-stock { color: var(--am-danger); }
+
+/* ==========================================================================
+   8. Messages
+   ========================================================================== */
+.woocommerce-message, .woocommerce-info, .woocommerce-error, .woocommerce-noreviews {
+  border-radius: var(--am-r-sm);
+  border-left: 4px solid currentColor;
+  color: var(--am-noir);
+}
+.woocommerce-message { background: #e9f3ec; border-left-color: var(--am-success); }
+.woocommerce-info { background: var(--am-rose); border-left-color: var(--am-peche); }
+.woocommerce-error { background: #fbe9e7; border-left-color: var(--am-danger); }
+.woocommerce-message a.button, .woocommerce-info a.button { float: right; }
+
+/* ==========================================================================
+   9. Accueil (template Storefront « Homepage »)
+   ========================================================================== */
+.page-template-template-homepage .entry-header { display: none; }
+.amorino-hero {
+  background: var(--am-rose);
+  border-radius: 24px;
+  padding: clamp(2rem, 6vw, 4.5rem);
+  margin-bottom: 3em;
+}
+.amorino-hero__eyebrow {
+  font-size: .75rem; font-weight: 700; letter-spacing: .2em;
+  text-transform: uppercase; color: var(--am-gris);
+}
+.amorino-hero h2 {
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  line-height: 1.02;
+  text-transform: uppercase;
+  margin: .3em 0 .4em;
+}
+.amorino-hero p { max-width: 46ch; color: var(--am-gris); font-size: 1.1rem; }
+.amorino-hero .button { margin-right: .5em; margin-top: .5em; }
+.storefront-product-section .section-title {
+  font-family: var(--am-display);
+  text-transform: uppercase;
+  font-size: 2.2rem;
+}
+
+/* ==========================================================================
+   10. Pied de page
+   ========================================================================== */
+.site-footer {
+  background: var(--am-noir);
+  color: var(--am-peche-300);
+}
+.site-footer a, .site-footer .widget-title, .site-footer h2, .site-footer h3 { color: var(--am-blanc); }
+.site-footer a:hover { color: var(--am-peche); }
+.amorino-footer {
+  display: flex; flex-wrap: wrap; gap: 1.5em 3em; align-items: center;
+  justify-content: space-between; padding: 1em 0; font-size: .85rem;
+}
+.amorino-footer img { height: 32px; width: auto; }
+.storefront-handheld-footer-bar { background: var(--am-blanc); border-top: 1px solid var(--am-bordure); }
+.storefront-handheld-footer-bar ul li > a { color: var(--am-noir); }
+.storefront-handheld-footer-bar ul li.cart .count {
+  background: var(--am-peche); color: var(--am-noir); border-color: var(--am-blanc);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ul.products li.product { transition: none; }
+  ul.products li.product:hover { transform: none; }
+}
