@@ -154,9 +154,12 @@ add_action( 'woocommerce_before_add_to_cart_button', function () {
 			placeholder="<?php esc_attr_e( 'Ex. : Pistache Mawardi, Sorbet Framboise', 'storefront-child' ); ?>"
 			aria-describedby="amorino_parfums_hint">
 		<?php if ( $names ) : ?>
-			<p id="amorino_parfums_hint" class="amorino-flavours__hint">
-				<?php echo esc_html( sprintf( __( 'Autant de parfums que vous le souhaitez parmi : %s.', 'storefront-child' ), implode( ', ', $names ) ) ); ?>
-			</p>
+			<p id="amorino_parfums_hint" class="amorino-flavours__hint"><?php esc_html_e( 'Touchez les parfums pour les ajouter, autant que vous voulez.', 'storefront-child' ); ?></p>
+			<div class="amorino-flavours__chips" role="group" aria-label="<?php esc_attr_e( 'Parfums proposés', 'storefront-child' ); ?>">
+				<?php foreach ( $names as $name ) : ?>
+					<button type="button" class="am-chip" aria-pressed="false" data-flavour="<?php echo esc_attr( $name ); ?>"><?php echo esc_html( $name ); ?></button>
+				<?php endforeach; ?>
+			</div>
 		<?php endif; ?>
 	</div>
 	<?php
@@ -212,3 +215,12 @@ add_filter( 'woocommerce_get_availability_text', function ( $text, $product ) {
 	}
 	return $text;
 }, 10, 2 );
+
+/**
+ * Fidélité maquette : pas de vignettes précédent/suivant, pas d'UGS vide.
+ */
+add_action( 'init', function () {
+	remove_action( 'woocommerce_after_single_product_summary', 'storefront_single_product_pagination', 30 );
+	remove_action( 'storefront_after_footer', 'storefront_single_product_pagination', 30 );
+} );
+add_filter( 'wc_product_sku_enabled', '__return_false' );

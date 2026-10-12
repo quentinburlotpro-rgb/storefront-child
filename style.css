@@ -335,3 +335,20 @@ ul.products li.product .button {
 
 .stock { font-weight: 600; }
 .stock.in-stock::before, .stock.out-of-stock::before { content: "● "; }
+
+/* Fidélité maquette : prix dans les tuiles, « Obligatoire », pastilles parfums */
+.am-required {
+  float: right; font-size: .8rem; font-weight: 400; color: var(--am-danger);
+}
+.am-tile { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .15em; }
+.am-tile__name { font-weight: 700; }
+.am-tile__price { font-size: .8rem; color: var(--am-gris-500); font-weight: 400; }
+.amorino-flavours__chips { display: flex; flex-wrap: wrap; gap: .5em; margin-top: .3em; }
+.am-chip {
+  min-height: 44px; padding: 0 1em; border-radius: var(--am-r-pill);
+  background: var(--am-blanc); color: var(--am-noir); border: 1px solid var(--am-bordure);
+  font: 500 .875rem var(--am-body); text-transform: none; letter-spacing: 0;
+}
+.am-chip:hover { background: var(--am-gris-50); color: var(--am-noir); border-color: var(--am-gris-500); }
+.am-chip[aria-pressed="true"] { background: var(--am-noir); color: var(--am-blanc); border-color: var(--am-noir); }
+.single-product .single_add_to_cart_button { min-height: 52px; padding-inline: 1.8em; }
