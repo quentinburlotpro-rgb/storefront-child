@@ -4,7 +4,7 @@ Theme URI:    https://github.com/quentinburlotpro-rgb/storefront-child
 Description:  Thème enfant de Storefront — SAé 3.01, BUT MMI, IUT du Limousin. Charte Amorino.
 Author:       Quentin Burlot
 Template:     storefront
-Version:      1.1.0
+Version:      1.2.0
 Text Domain:  storefront-child
 */
 
@@ -295,3 +295,43 @@ ul.products li.product .button {
   ul.products li.product { transition: none; }
   ul.products li.product:hover { transform: none; }
 }
+
+/* ==========================================================================
+   11. Itération 3 — sélecteur d'options en tuiles (maquette), parfums, stock
+   ========================================================================== */
+.single-product table.variations { border: 0; margin-bottom: 1em; }
+.single-product table.variations th,
+.single-product table.variations td { display: block; padding: 0; background: none; border: 0; }
+.single-product table.variations th.label label {
+  font-weight: 700; text-transform: none; margin-bottom: .6em; display: block;
+}
+.single-product table.variations tr { display: block; margin-bottom: 1.4em; }
+.am-hidden-select {
+  position: absolute !important; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap; border: 0; padding: 0;
+}
+.am-tiles {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: .6em;
+}
+.am-tile {
+  min-height: 56px; padding: .6em .8em;
+  background: var(--am-blanc); color: var(--am-noir);
+  border: 1.5px solid var(--am-bordure); border-radius: var(--am-r-md);
+  font: 500 .95rem/1.2 var(--am-body); text-transform: none; letter-spacing: 0;
+  cursor: pointer;
+}
+.am-tile:hover { background: var(--am-gris-50); border-color: var(--am-gris-500); color: var(--am-noir); }
+.am-tile[aria-pressed="true"] {
+  background: var(--am-gris-50); border: 2px solid var(--am-noir); color: var(--am-noir);
+}
+.am-tile:disabled { opacity: .45; text-decoration: line-through; cursor: not-allowed; }
+.single-product .reset_variations { font-size: .85rem; color: var(--am-gris-500); }
+.single-product .woocommerce-variation-price .price { font-size: 1.6rem; font-weight: 700; color: var(--am-noir); }
+
+.amorino-flavours { display: grid; gap: .4em; margin: 0 0 1.4em; }
+.amorino-flavours label { font-weight: 700; }
+.amorino-flavours .required { color: var(--am-danger); }
+.amorino-flavours__hint { margin: 0; font-size: .85rem; color: var(--am-gris-500); }
+
+.stock { font-weight: 600; }
+.stock.in-stock::before, .stock.out-of-stock::before { content: "● "; }
