@@ -4,7 +4,7 @@ Theme URI:    https://github.com/quentinburlotpro-rgb/storefront-child
 Description:  Thème enfant de Storefront — SAé 3.01, BUT MMI, IUT du Limousin. Charte Amorino.
 Author:       Quentin Burlot
 Template:     storefront
-Version:      1.2.0
+Version:      1.3.0
 Text Domain:  storefront-child
 */
 
@@ -352,3 +352,51 @@ ul.products li.product .button {
 .am-chip:hover { background: var(--am-gris-50); color: var(--am-noir); border-color: var(--am-gris-500); }
 .am-chip[aria-pressed="true"] { background: var(--am-noir); color: var(--am-blanc); border-color: var(--am-noir); }
 .single-product .single_add_to_cart_button { min-height: 52px; padding-inline: 1.8em; }
+
+/* ==========================================================================
+   8. Itération 4 — informations produit (accordéon avant le prix)
+   ========================================================================== */
+.amorino-infos {
+  margin: 0 0 1.4em;
+  border: 1px solid var(--am-bordure);
+  border-radius: var(--am-r-md);
+  overflow: hidden;
+}
+.amorino-infos__item + .amorino-infos__item { border-top: 1px solid var(--am-bordure); }
+.amorino-infos__item summary {
+  display: flex; align-items: center; justify-content: space-between; gap: 1em;
+  min-height: 52px; padding: 0 1.25em;
+  font-weight: 700; color: var(--am-noir);
+  cursor: pointer; list-style: none;
+}
+.amorino-infos__item summary::-webkit-details-marker { display: none; }
+.amorino-infos__item summary::after {
+  content: "+"; font-size: 1.4rem; font-weight: 400; line-height: 1;
+}
+.amorino-infos__item[open] summary::after { content: "–"; }
+.amorino-infos__item summary:hover { background: var(--am-gris-50); }
+.amorino-infos__item summary:focus-visible { outline: 3px solid var(--am-peche); outline-offset: -3px; }
+.amorino-infos__body { padding: 0 1.25em 1.1em; color: var(--am-gris); font-size: .925rem; line-height: 1.6; }
+.amorino-infos__body p { margin: 0; }
+.amorino-infos__note { margin-top: .6em !important; color: var(--am-gris-500); font-size: .85rem; }
+.amorino-infos__body strong { color: var(--am-noir); }
+
+.amorino-allergens { display: flex; flex-wrap: wrap; gap: .4em; margin: 0; padding: 0; list-style: none; }
+.amorino-allergens li {
+  padding: .2em .8em; border-radius: var(--am-r-pill);
+  background: var(--am-rose); color: var(--am-noir);
+  font-size: .8rem; font-weight: 700;
+}
+
+.amorino-nutrition { width: 100%; margin: 0; border-collapse: collapse; font-size: .875rem; }
+.amorino-nutrition caption {
+  caption-side: top; text-align: left; padding: 0 0 .5em;
+  color: var(--am-gris-500); font-size: .8rem;
+}
+.amorino-nutrition th, .amorino-nutrition td {
+  padding: .45em 0; background: none; border: 0; border-bottom: 1px solid var(--am-bordure);
+}
+.amorino-nutrition th { font-weight: 600; color: var(--am-noir); text-align: left; }
+.amorino-nutrition td { text-align: right; font-variant-numeric: tabular-nums; }
+.amorino-nutrition tr.is-sub th { padding-left: 1.2em; font-weight: 400; color: var(--am-gris); }
+.amorino-nutrition tr:last-child th, .amorino-nutrition tr:last-child td { border-bottom: 0; }

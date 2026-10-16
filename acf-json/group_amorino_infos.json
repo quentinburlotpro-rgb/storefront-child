@@ -1,0 +1,108 @@
+{
+    "key": "group_amorino_infos",
+    "title": "Informations produit (allergènes, nutrition, composition)",
+    "fields": [
+        {
+            "key": "field_am_tab_allergenes",
+            "label": "Allergènes",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_am_allergenes",
+            "label": "Allergènes présents",
+            "name": "allergenes",
+            "type": "checkbox",
+            "instructions": "Les 14 allergènes à déclaration obligatoire (règlement UE n° 1169/2011, annexe II).",
+            "required": 0,
+            "choices": {
+                "gluten": "Gluten",
+                "crustaces": "Crustacés",
+                "oeufs": "Œufs",
+                "poissons": "Poissons",
+                "arachides": "Arachides",
+                "soja": "Soja",
+                "lait": "Lait",
+                "fruits_a_coque": "Fruits à coque",
+                "celeri": "Céleri",
+                "moutarde": "Moutarde",
+                "sesame": "Sésame",
+                "sulfites": "Sulfites",
+                "lupin": "Lupin",
+                "mollusques": "Mollusques"
+            },
+            "layout": "horizontal",
+            "toggle": 0,
+            "allow_custom": 0,
+            "return_format": "array"
+        },
+        {
+            "key": "field_am_traces",
+            "label": "Traces éventuelles",
+            "name": "traces",
+            "type": "text",
+            "instructions": "Ex. : soja, gluten (même atelier de fabrication).",
+            "required": 0
+        },
+        {
+            "key": "field_am_tab_nutrition",
+            "label": "Valeurs nutritionnelles",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_am_nutrition",
+            "label": "Valeurs nutritionnelles",
+            "name": "nutrition",
+            "type": "group",
+            "instructions": "Laisser vide une valeur inconnue : la ligne n'est pas affichée.",
+            "layout": "table",
+            "sub_fields": [
+                { "key": "field_am_portion", "label": "Pour", "name": "portion", "type": "text", "default_value": "100 g", "placeholder": "100 g" },
+                { "key": "field_am_kcal", "label": "Énergie (kcal)", "name": "energie_kcal", "type": "number", "min": 0, "step": 1 },
+                { "key": "field_am_lipides", "label": "Matières grasses (g)", "name": "matieres_grasses", "type": "number", "min": 0, "step": 0.1 },
+                { "key": "field_am_satures", "label": "dont saturés (g)", "name": "acides_gras_satures", "type": "number", "min": 0, "step": 0.1 },
+                { "key": "field_am_glucides", "label": "Glucides (g)", "name": "glucides", "type": "number", "min": 0, "step": 0.1 },
+                { "key": "field_am_sucres", "label": "dont sucres (g)", "name": "sucres", "type": "number", "min": 0, "step": 0.1 },
+                { "key": "field_am_proteines", "label": "Protéines (g)", "name": "proteines", "type": "number", "min": 0, "step": 0.1 },
+                { "key": "field_am_sel", "label": "Sel (g)", "name": "sel", "type": "number", "min": 0, "step": 0.01 }
+            ]
+        },
+        {
+            "key": "field_am_tab_composition",
+            "label": "Composition",
+            "name": "",
+            "type": "tab",
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_am_composition",
+            "label": "Composition",
+            "name": "composition",
+            "type": "textarea",
+            "instructions": "Liste des ingrédients par ordre décroissant. Les allergènes cochés sont mis en gras automatiquement.",
+            "rows": 5,
+            "new_lines": ""
+        }
+    ],
+    "location": [
+        [
+            { "param": "post_type", "operator": "==", "value": "product" }
+        ]
+    ],
+    "menu_order": 1,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "SAé 3.01, itération 4 : contenu affiché sur la fiche produit, avant le prix.",
+    "show_in_rest": 0,
+    "modified": 1792143000
+}
