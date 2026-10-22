@@ -1,8 +1,33 @@
-/* Moments (taxonomie) */
-.amorino-moment {
-  margin-bottom: 3em;
+/* [IT-12] Page « Nos envies » : un bloc par moment (taxonomie), distinct de la boutique */
+.am-mo-nav { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 2.5em; }
+.am-mo-nav a {
+  padding: .55em 1.2em; border: 1px solid var(--am-bordure); border-radius: var(--am-r-pill);
+  color: var(--am-noir); text-decoration: none; font-size: .85rem; font-weight: 600;
 }
-.amorino-moment h2 a {
-  color: var(--am-noir);
-  text-decoration: none;
+.am-mo-nav a:hover { background: var(--am-noir); color: var(--am-blanc); border-color: var(--am-noir); }
+.am-moment {
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr); gap: 32px;
+  padding: 32px; margin: 0 0 24px; border-radius: 24px; background: var(--am-rose);
+  scroll-margin-top: 24px;
+}
+.am-moment:nth-of-type(even) { background: var(--am-gris-50); }
+.am-mo-head { align-self: center; }
+.am-mo-num { display: block; font: 500 3.5rem/1 var(--am-display); color: var(--am-peche); }
+.am-mo-head h2 { margin: .2em 0 .3em; font-size: clamp(1.6rem, 3vw, 2.2rem); text-transform: uppercase; }
+.am-mo-head p { margin: 0 0 1.2em; color: var(--am-gris); }
+.am-mo-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.am-mo-list a {
+  display: grid; grid-template-columns: 64px 1fr auto; align-items: center; gap: 16px;
+  padding: 10px 16px 10px 10px; background: var(--am-blanc); border-radius: 16px;
+  color: var(--am-noir); text-decoration: none; transition: transform .15s ease;
+}
+.am-mo-list a:hover { transform: translateX(4px); }
+.am-mo-img img { width: 64px !important; height: 64px; object-fit: cover; border-radius: 12px; display: block; background: var(--am-rose); }
+.am-mo-txt { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.am-mo-txt strong { font: 500 1.15rem var(--am-display); }
+.am-mo-txt span { font-size: .85rem; color: var(--am-gris-500); }
+.am-mo-go { font-size: 1.2rem; }
+@media (max-width: 767px) {
+  .am-moment { grid-template-columns: 1fr; gap: 20px; padding: 20px; border-radius: 18px; }
+  .am-mo-num { font-size: 2.6rem; }
 }
