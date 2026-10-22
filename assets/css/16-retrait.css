@@ -1,0 +1,33 @@
+.amorino-pickup,
+.amorino-slot {
+  margin: 0 0 1.5em;
+  padding: 1.1em 1.25em;
+  border-radius: var(--am-r-md);
+  background: var(--am-rose);
+}
+.amorino-pickup h3,
+.amorino-slot h3 {
+  margin: 0 0 0.4em;
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: var(--am-body);
+}
+.amorino-pickup p {
+  margin: 0;
+}
+.amorino-slot select {
+  width: 100%;
+  min-height: 44px;
+  border-radius: var(--am-r-sm);
+  border: 1px solid var(--am-bordure);
+  background: #fff;
+  padding: 0 0.6em;
+}
+.amorino-slot::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.amorino-slot-recap {
+  margin-top: 1em;
+}
