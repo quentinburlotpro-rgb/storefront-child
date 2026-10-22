@@ -1,22 +1,291 @@
 {
-  "key": "group_amorino_equipe_options",
-  "title": "Réglages de la page Équipe",
-  "fields": [
-    { "key": "field_am_eq_tab1", "label": "Contenu", "name": "", "type": "tab", "placement": "top" },
-    { "key": "field_am_eq_titre", "label": "Titre de la page", "name": "titre", "type": "text", "default_value": "L’équipe", "required": 1 },
-    { "key": "field_am_eq_intro", "label": "Introduction", "name": "intro", "type": "textarea", "rows": 3, "new_lines": "", "default_value": "Ceux qui sculptent vos fleurs de gelato chaque jour à Limoges." },
-    { "key": "field_am_eq_photo", "label": "Photo de groupe (bandeau)", "name": "photo", "type": "image", "return_format": "id", "preview_size": "medium", "instructions": "Facultatif : affichée sous l’introduction." },
-    { "key": "field_am_eq_tab2", "label": "Affichage", "name": "", "type": "tab", "placement": "top" },
-    { "key": "field_am_eq_colonnes", "label": "Membres par ligne", "name": "colonnes", "type": "button_group", "choices": { "2": "2", "3": "3", "4": "4" }, "default_value": "3", "layout": "horizontal" },
-    { "key": "field_am_eq_tri", "label": "Ordre des membres", "name": "tri", "type": "radio", "choices": { "manuel": "Ordre manuel (attribut « Ordre » du membre)", "alpha": "Alphabétique" }, "default_value": "manuel", "layout": "vertical" },
-    { "key": "field_am_eq_role", "label": "Afficher le rôle sous le nom", "name": "afficher_role", "type": "true_false", "default_value": 1, "ui": 1, "ui_on_text": "Oui", "ui_off_text": "Non" },
-    { "key": "field_am_eq_tab3", "label": "Recrutement", "name": "", "type": "tab", "placement": "top" },
-    { "key": "field_am_eq_recrute", "label": "Afficher l’encart « On recrute »", "name": "recrutement", "type": "true_false", "default_value": 1, "ui": 1, "ui_on_text": "Oui", "ui_off_text": "Non" },
-    { "key": "field_am_eq_recrute_txt", "label": "Texte de l’encart", "name": "recrutement_texte", "type": "text", "default_value": "Envie de sculpter des fleurs de gelato avec nous ?", "conditional_logic": [[{ "field": "field_am_eq_recrute", "operator": "==", "value": "1" }]] },
-    { "key": "field_am_eq_recrute_mail", "label": "E-mail de candidature", "name": "recrutement_email", "type": "email", "default_value": "recrutement@amorino-limoges.example", "conditional_logic": [[{ "field": "field_am_eq_recrute", "operator": "==", "value": "1" }]] }
-  ],
-  "location": [[{ "param": "options_page", "operator": "==", "value": "amorino-equipe" }]],
-  "menu_order": 0, "position": "normal", "style": "default", "label_placement": "top",
-  "instruction_placement": "label", "hide_on_screen": "", "active": true,
-  "description": "SAé 3.01, itération 11 : page de configuration de l’équipe (SCF).", "show_in_rest": 0, "modified": 1792350500
+    "key": "group_amorino_equipe_options",
+    "title": "Réglages de la page Équipe",
+    "fields": [
+        {
+            "key": "field_am_eq_tab1",
+            "label": "Contenu",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_am_eq_titre",
+            "label": "Titre de la page",
+            "name": "titre",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "L’équipe",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_am_eq_intro",
+            "label": "Introduction",
+            "name": "intro",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "rows": 3,
+            "new_lines": "",
+            "default_value": "Ceux qui sculptent vos fleurs de gelato chaque jour à Limoges.",
+            "maxlength": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_am_eq_photo",
+            "label": "Photo de groupe (bandeau)",
+            "name": "photo",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "Facultatif : affichée sous l’introduction.",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": 0,
+            "min_height": 0,
+            "min_size": 0,
+            "max_width": 0,
+            "max_height": 0,
+            "max_size": 0,
+            "mime_types": ""
+        },
+        {
+            "key": "field_am_eq_tab2",
+            "label": "Affichage",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_am_eq_colonnes",
+            "label": "Membres par ligne",
+            "name": "colonnes",
+            "aria-label": "",
+            "type": "button_group",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "2": "2",
+                "3": "3",
+                "4": "4"
+            },
+            "default_value": 3,
+            "layout": "horizontal",
+            "allow_null": 0,
+            "return_format": "value"
+        },
+        {
+            "key": "field_am_eq_tri",
+            "label": "Ordre des membres",
+            "name": "tri",
+            "aria-label": "",
+            "type": "radio",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "manuel": "Ordre manuel (attribut « Ordre » du membre)",
+                "alpha": "Alphabétique"
+            },
+            "default_value": "manuel",
+            "layout": "vertical",
+            "other_choice": 0,
+            "save_other_choice": 0,
+            "allow_null": 0,
+            "return_format": "value"
+        },
+        {
+            "key": "field_am_eq_role",
+            "label": "Afficher le rôle sous le nom",
+            "name": "afficher_role",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "Oui",
+            "ui_off_text": "Non",
+            "message": ""
+        },
+        {
+            "key": "field_am_eq_tab3",
+            "label": "Recrutement",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_am_eq_recrute",
+            "label": "Afficher l’encart « On recrute »",
+            "name": "recrutement",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "Oui",
+            "ui_off_text": "Non",
+            "message": ""
+        },
+        {
+            "key": "field_am_eq_recrute_txt",
+            "label": "Texte de l’encart",
+            "name": "recrutement_texte",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_am_eq_recrute",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Envie de sculpter des fleurs de gelato avec nous ?",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_am_eq_recrute_mail",
+            "label": "E-mail de candidature",
+            "name": "recrutement_email",
+            "aria-label": "",
+            "type": "email",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_am_eq_recrute",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "recrutement@amorino-limoges.example",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "amorino-equipe"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "SAé 3.01, itération 11 : page de configuration de l’équipe (SCF).",
+    "show_in_rest": 0,
+    "display_title": "",
+    "allow_ai_access": false,
+    "ai_description": "",
+    "modified": 1792671248
 }

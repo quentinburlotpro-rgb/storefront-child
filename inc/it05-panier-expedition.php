@@ -64,3 +64,11 @@ add_action( 'wp_footer', function () {
 	</script>
 	<?php
 }, 30 );
+
+/* Prix au format français (4,50 €) et libellé court du bouton code promo */
+add_filter( 'wc_get_price_decimal_separator', function () { return ','; } );
+add_filter( 'wc_get_price_thousand_separator', function () { return ' '; } );
+add_filter( 'woocommerce_price_format', function () { return '%2$s&nbsp;%1$s'; } );
+add_filter( 'gettext_woocommerce', function ( $t, $src ) {
+	return 'Apply coupon' === $src ? 'Appliquer' : $t;
+}, 10, 2 );

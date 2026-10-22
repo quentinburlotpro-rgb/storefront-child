@@ -1,0 +1,64 @@
+/* Correctifs design : notices, tableau panier, filtres boutique */
+
+/* Notices WooCommerce : un seul liseré, pas d'anneau de focus, bouton lisible */
+.woocommerce-message,
+.woocommerce-info,
+.woocommerce-error {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 24px;
+  outline: none !important;
+  box-shadow: none !important;
+  border: 1px solid var(--am-bordure) !important;
+  border-left: 4px solid var(--am-peche) !important;
+}
+.woocommerce-message:focus,
+.woocommerce-info:focus,
+.woocommerce-error:focus { outline: none !important; }
+.woocommerce-message a.button,
+.woocommerce-info a.button,
+.woocommerce-error a.button {
+  order: 2;
+  margin-left: auto;
+  float: none;
+  background: var(--am-noir) !important;
+  color: var(--am-blanc) !important;
+  text-decoration: none !important;
+  white-space: nowrap;
+}
+.woocommerce-message a.button:hover,
+.woocommerce-info a.button:hover { background: var(--am-gris) !important; }
+
+/* Panier : bordure continue sous l'en-tête, actions sur une ligne */
+.woocommerce-cart table.shop_table tbody td { border-top: 1px solid var(--am-bordure) !important; }
+.woocommerce-cart table.shop_table td.product-remove { background: var(--am-blanc); }
+.woocommerce-cart td.actions .coupon { float: left; }
+.woocommerce-cart td.actions .coupon .input-text { min-width: 160px; width: 160px; }
+.woocommerce-cart td.actions .button { padding-left: 1.4em !important; padding-right: 1.4em !important; }
+.woocommerce-cart td.actions button[name="update_cart"] {
+  float: right;
+  border: 1px solid var(--am-bordure) !important;
+}
+.woocommerce-cart td.actions::after { content: ""; display: table; clear: both; }
+.woocommerce-cart .quantity .qty::-webkit-outer-spin-button,
+.woocommerce-cart .quantity .qty::-webkit-inner-spin-button { opacity: 1; }
+
+/* Filtres boutique : plus d'icônes qui débordent, liens sobres */
+.widget-area .widget li::before { display: none !important; }
+.widget-area .widget li {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+  padding-left: 0 !important;
+  margin-left: 0 !important;
+}
+.widget-area .widget li a {
+  color: var(--am-noir) !important;
+  text-decoration: none !important;
+  font-weight: 500;
+}
+.widget-area .widget li a:hover { text-decoration: underline !important; }
+.widget-area .widget li .count { color: var(--am-gris-500); font-size: .85em; }
+.widget_layered_nav li.chosen a { font-weight: 700; text-decoration: underline !important; }
