@@ -1,0 +1,113 @@
+.amorino-infos {
+  margin: 0 0 1.4em;
+  border: 1px solid var(--am-bordure);
+  border-radius: var(--am-r-md);
+  overflow: hidden;
+}
+.amorino-infos__item + .amorino-infos__item {
+  border-top: 1px solid var(--am-bordure);
+}
+.amorino-infos__item summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1em;
+  min-height: 52px;
+  padding: 0 1.25em;
+  font-weight: 700;
+  color: var(--am-noir);
+  cursor: pointer;
+  list-style: none;
+}
+.amorino-infos__item summary::-webkit-details-marker {
+  display: none;
+}
+.amorino-infos__item summary::after {
+  content: "+";
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 1;
+}
+.amorino-infos__item[open] summary::after {
+  content: "–";
+}
+.amorino-infos__item summary:hover {
+  background: var(--am-gris-50);
+}
+.amorino-infos__item summary:focus-visible {
+  outline: 3px solid var(--am-peche);
+  outline-offset: -3px;
+}
+.amorino-infos__body {
+  padding: 0 1.25em 1.1em;
+  color: var(--am-gris);
+  font-size: 0.925rem;
+  line-height: 1.6;
+}
+.amorino-infos__body p {
+  margin: 0;
+}
+.amorino-infos__note {
+  margin-top: 0.6em !important;
+  color: var(--am-gris-500);
+  font-size: 0.85rem;
+}
+.amorino-infos__body strong {
+  color: var(--am-noir);
+}
+
+.amorino-allergens {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4em;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.amorino-allergens li {
+  padding: 0.2em 0.8em;
+  border-radius: var(--am-r-pill);
+  background: var(--am-rose);
+  color: var(--am-noir);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.amorino-nutrition {
+  width: 100%;
+  margin: 0;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+.amorino-nutrition caption {
+  caption-side: top;
+  text-align: left;
+  padding: 0 0 0.5em;
+  color: var(--am-gris-500);
+  font-size: 0.8rem;
+}
+.amorino-nutrition th,
+.amorino-nutrition td {
+  padding: 0.45em 0;
+  background: none;
+  border: 0;
+  border-bottom: 1px solid var(--am-bordure);
+}
+.amorino-nutrition th {
+  font-weight: 600;
+  color: var(--am-noir);
+  text-align: left;
+}
+.amorino-nutrition td {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.amorino-nutrition tr.is-sub th {
+  padding-left: 1.2em;
+  font-weight: 400;
+  color: var(--am-gris);
+}
+.amorino-nutrition tr:last-child th,
+.amorino-nutrition tr:last-child td {
+  border-bottom: 0;
+}
