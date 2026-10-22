@@ -1,0 +1,22 @@
+/* Filtres boutique (barre latérale) */
+.widget_price_filter .ui-slider .ui-slider-range,
+.widget_price_filter .ui-slider .ui-slider-handle {
+  background: var(--am-noir);
+}
+.widget_layered_nav li a {
+  color: var(--am-noir);
+}
+.widget-area .widget-title {
+  font-family: var(--am-body);
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.amorino-legal {
+  margin-top: 1em;
+  font-size: 0.85rem;
+}
+.amorino-legal a {
+  color: inherit;
+}
