@@ -1,0 +1,16 @@
+{
+  "key": "group_amorino_seo",
+  "title": "Référencement (SEO)",
+  "fields": [
+    { "key": "field_am_seo_title", "label": "Balise Title", "name": "seo_title", "type": "text", "maxlength": 65, "instructions": "60 caractères environ. Vide = titre automatique." },
+    { "key": "field_am_seo_desc", "label": "Meta description", "name": "seo_description", "type": "textarea", "rows": 3, "maxlength": 160, "new_lines": "", "instructions": "155 caractères environ, reprise par Google et le partage sur les réseaux sociaux (Open Graph). Vide = description courte." }
+  ],
+  "location": [
+    [{ "param": "post_type", "operator": "==", "value": "product" }],
+    [{ "param": "taxonomy", "operator": "==", "value": "product_cat" }],
+    [{ "param": "taxonomy", "operator": "==", "value": "moment" }]
+  ],
+  "menu_order": 5, "position": "normal", "style": "default", "label_placement": "top",
+  "instruction_placement": "label", "hide_on_screen": "", "active": true,
+  "description": "SAé 3.01, itération 21.", "show_in_rest": 0, "modified": 1792400000
+}
