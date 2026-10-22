@@ -52,9 +52,9 @@ function am_header() {
 			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'container' => false, 'menu_class' => 'am-nav__list', 'depth' => 1, 'fallback_cb' => false ) ); ?>
 		</nav>
 		<div class="am-header__actions">
-			<a class="am-pill" href="<?php echo esc_url( home_url( '/#retrait' ) ); ?>"><?php echo am_icon( 'pin', 18 ); // phpcs:ignore ?><span><?php esc_html_e( 'Ma boutique', 'storefront-child' ); ?></span></a>
+			<a class="am-pill" href="<?php echo esc_url( home_url( '/#retrait' ) ); ?>" aria-label="<?php esc_attr_e( 'Ma boutique', 'storefront-child' ); ?>"><?php echo am_icon( 'pin', 18 ); // phpcs:ignore ?><span><?php esc_html_e( 'Ma boutique', 'storefront-child' ); ?></span></a>
 			<a class="am-iconbtn" href="<?php echo esc_url( wc_get_page_permalink( 'myaccount' ) ); ?>" aria-label="<?php esc_attr_e( 'Mon compte', 'storefront-child' ); ?>"><?php echo am_icon( 'user', 22 ); // phpcs:ignore ?></a>
-			<a class="am-cart" href="<?php echo esc_url( wc_get_cart_url() ); ?>" aria-label="<?php esc_attr_e( 'Panier', 'storefront-child' ); ?>"><?php echo am_icon( 'cart', 20 ) . am_cart_count(); // phpcs:ignore ?></a>
+			<a class="am-cart" href="<?php echo esc_url( wc_get_cart_url() ); ?>"><?php echo am_icon( 'cart', 20 ); // phpcs:ignore ?><span class="screen-reader-text"><?php esc_html_e( 'Panier', 'storefront-child' ); ?></span><?php echo am_cart_count(); // phpcs:ignore ?></a>
 		</div>
 	</div>
 	<?php
