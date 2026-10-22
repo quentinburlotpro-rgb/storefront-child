@@ -1,0 +1,22 @@
+{
+  "key": "group_amorino_equipe_options",
+  "title": "Réglages de la page Équipe",
+  "fields": [
+    { "key": "field_am_eq_tab1", "label": "Contenu", "name": "", "type": "tab", "placement": "top" },
+    { "key": "field_am_eq_titre", "label": "Titre de la page", "name": "titre", "type": "text", "default_value": "L’équipe", "required": 1 },
+    { "key": "field_am_eq_intro", "label": "Introduction", "name": "intro", "type": "textarea", "rows": 3, "new_lines": "", "default_value": "Ceux qui sculptent vos fleurs de gelato chaque jour à Limoges." },
+    { "key": "field_am_eq_photo", "label": "Photo de groupe (bandeau)", "name": "photo", "type": "image", "return_format": "id", "preview_size": "medium", "instructions": "Facultatif : affichée sous l’introduction." },
+    { "key": "field_am_eq_tab2", "label": "Affichage", "name": "", "type": "tab", "placement": "top" },
+    { "key": "field_am_eq_colonnes", "label": "Membres par ligne", "name": "colonnes", "type": "button_group", "choices": { "2": "2", "3": "3", "4": "4" }, "default_value": "3", "layout": "horizontal" },
+    { "key": "field_am_eq_tri", "label": "Ordre des membres", "name": "tri", "type": "radio", "choices": { "manuel": "Ordre manuel (attribut « Ordre » du membre)", "alpha": "Alphabétique" }, "default_value": "manuel", "layout": "vertical" },
+    { "key": "field_am_eq_role", "label": "Afficher le rôle sous le nom", "name": "afficher_role", "type": "true_false", "default_value": 1, "ui": 1, "ui_on_text": "Oui", "ui_off_text": "Non" },
+    { "key": "field_am_eq_tab3", "label": "Recrutement", "name": "", "type": "tab", "placement": "top" },
+    { "key": "field_am_eq_recrute", "label": "Afficher l’encart « On recrute »", "name": "recrutement", "type": "true_false", "default_value": 1, "ui": 1, "ui_on_text": "Oui", "ui_off_text": "Non" },
+    { "key": "field_am_eq_recrute_txt", "label": "Texte de l’encart", "name": "recrutement_texte", "type": "text", "default_value": "Envie de sculpter des fleurs de gelato avec nous ?", "conditional_logic": [[{ "field": "field_am_eq_recrute", "operator": "==", "value": "1" }]] },
+    { "key": "field_am_eq_recrute_mail", "label": "E-mail de candidature", "name": "recrutement_email", "type": "email", "default_value": "recrutement@amorino-limoges.example", "conditional_logic": [[{ "field": "field_am_eq_recrute", "operator": "==", "value": "1" }]] }
+  ],
+  "location": [[{ "param": "options_page", "operator": "==", "value": "amorino-equipe" }]],
+  "menu_order": 0, "position": "normal", "style": "default", "label_placement": "top",
+  "instruction_placement": "label", "hide_on_screen": "", "active": true,
+  "description": "SAé 3.01, itération 11 : page de configuration de l’équipe (SCF).", "show_in_rest": 0, "modified": 1792350500
+}
