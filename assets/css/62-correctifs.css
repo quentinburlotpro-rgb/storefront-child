@@ -4,10 +4,7 @@
 .woocommerce-message,
 .woocommerce-info,
 .woocommerce-error {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 12px 24px;
+  display: block;
   outline: none !important;
   box-shadow: none !important;
   border: 1px solid var(--am-bordure) !important;
@@ -19,9 +16,8 @@
 .woocommerce-message a.button,
 .woocommerce-info a.button,
 .woocommerce-error a.button {
-  order: 2;
-  margin-left: auto;
-  float: none;
+  float: right;
+  margin: -0.35em 0 0 1em;
   background: var(--am-noir) !important;
   color: var(--am-blanc) !important;
   text-decoration: none !important;
@@ -62,3 +58,38 @@
 .widget-area .widget li a:hover { text-decoration: underline !important; }
 .widget-area .widget li .count { color: var(--am-gris-500); font-size: .85em; }
 .widget_layered_nav li.chosen a { font-weight: 700; text-decoration: underline !important; }
+
+.woocommerce-message::after, .woocommerce-info::after { content: ""; display: table; clear: both; }
+
+/* ---- Responsive ---- */
+.am-mo-nav a, .am-mo-list a, .am-mo-list a * { text-decoration: none !important; }
+.am-mo-head .button { text-decoration: none !important; }
+.amorino-team__jobs { margin-bottom: 48px; }
+.password-input { position: relative; display: block; }
+.password-input input { padding-right: 48px !important; width: 100%; }
+.password-input .show-password-input {
+  position: absolute; top: 50%; right: 6px; transform: translateY(-50%);
+  width: 36px; height: 36px; min-height: 0; padding: 0 !important; margin: 0;
+  background: transparent !important; color: var(--am-gris-500) !important; border: 0 !important; box-shadow: none !important;
+}
+.password-input .show-password-input::after { color: inherit; }
+.single_add_to_cart_button { white-space: nowrap; }
+@media (max-width: 767px) {
+  .woocommerce-message a.button, .woocommerce-info a.button {
+    float: none; display: block; width: 100%; margin: 12px 0 0; text-align: center;
+  }
+  .am-tiles { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; gap: 8px !important; }
+  .am-tile { min-width: 0; padding-left: 4px !important; padding-right: 4px !important; }
+  form.cart .quantity + .single_add_to_cart_button, form.cart .single_add_to_cart_button {
+    font-size: .8rem; letter-spacing: .04em; padding-left: 1em !important; padding-right: 1em !important;
+  }
+  .cart_totals .woocommerce-shipping-totals th,
+  .cart_totals .woocommerce-shipping-totals td,
+  #order_review .woocommerce-shipping-totals th,
+  #order_review .woocommerce-shipping-totals td { display: block; width: 100%; text-align: left !important; }
+  .cart_totals .woocommerce-shipping-totals td { padding-top: 0 !important; }
+  #shipping_method li { display: flex; gap: 8px; align-items: baseline; margin-bottom: .4em; }
+  #shipping_method li input { flex: none; margin: 0; }
+  .am-mo-list a { grid-template-columns: 56px 1fr auto; gap: 12px; }
+  .am-mo-img img { width: 56px !important; height: 56px; }
+}
