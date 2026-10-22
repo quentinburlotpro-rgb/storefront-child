@@ -1,0 +1,8 @@
+/* Moments (taxonomie) */
+.amorino-moment {
+  margin-bottom: 3em;
+}
+.amorino-moment h2 a {
+  color: var(--am-noir);
+  text-decoration: none;
+}
