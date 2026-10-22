@@ -1,0 +1,51 @@
+/* Panier / checkout / compte : coins, boutons pleine largeur */
+.woocommerce-cart table.cart,
+.woocommerce-checkout-review-order-table {
+  border-radius: var(--am-r-md);
+  overflow: hidden;
+}
+.woocommerce-cart table.cart img {
+  border-radius: var(--am-r-sm);
+  width: 72px;
+}
+.cart_totals .checkout-button,
+#place_order {
+  width: 100%;
+  min-height: 52px;
+  border-radius: var(--am-r-pill);
+}
+.woocommerce form .form-row input.input-text,
+.woocommerce form .form-row textarea {
+  border-radius: var(--am-r-sm);
+  border: 1px solid var(--am-bordure);
+  background: #fff;
+}
+.woocommerce-MyAccount-navigation ul {
+  margin: 0;
+  list-style: none;
+  border: 1px solid var(--am-bordure);
+  border-radius: var(--am-r-md);
+  overflow: hidden;
+}
+.woocommerce-MyAccount-navigation li a {
+  display: block;
+  padding: 0.8em 1.1em;
+  color: var(--am-noir);
+}
+.woocommerce-MyAccount-navigation li + li {
+  border-top: 1px solid var(--am-bordure);
+}
+.woocommerce-MyAccount-navigation li.is-active a {
+  background: var(--am-noir);
+  color: var(--am-blanc);
+}
+.woocommerce-form-login,
+.woocommerce-form-register {
+  border: 1px solid var(--am-bordure) !important;
+  border-radius: var(--am-r-md);
+  padding: 1.5em !important;
+}
+mark.order-status,
+.order-status {
+  border-radius: var(--am-r-pill);
+}
