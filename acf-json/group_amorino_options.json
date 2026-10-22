@@ -1,0 +1,76 @@
+{
+    "key": "group_amorino_options",
+    "title": "Options Amorino",
+    "fields": [
+        {
+            "key": "field_amorino_choix_parfums",
+            "label": "Choix des parfums par le client",
+            "name": "choix_parfums",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Affiche le champ « Vos parfums » (obligatoire) sur la fiche produit.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "Oui",
+            "ui_off_text": "Non"
+        },
+        {
+            "key": "field_amorino_parfums_disponibles",
+            "label": "Parfums proposés",
+            "name": "parfums_disponibles",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Un parfum par ligne. Affichés au client comme aide sous le champ « Vos parfums ».",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_amorino_choix_parfums",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "rows": 8,
+            "placeholder": "",
+            "new_lines": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "product"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "side",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Options de commande propres à Amorino (SAé 3.01, itération 3).",
+    "show_in_rest": 0,
+    "display_title": "",
+    "allow_ai_access": false,
+    "ai_description": "",
+    "modified": 1792350249
+}
