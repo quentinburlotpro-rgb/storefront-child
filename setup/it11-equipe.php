@@ -1,6 +1,6 @@
 <?php
 /**
- * [IT-11] Type « membre » (CPT UI) et 3 membres.
+ * [IT-11] Type « membre » (SCF) et 3 membres.
  * Lancement : ddev wp eval-file setup/<ce fichier> (relançable).
  */
 $log  = function ( $m ) { WP_CLI::log( '  ' . $m ); };
@@ -9,7 +9,7 @@ $pid  = $prod;
 
 $yes = 'true'; $no = 'false';
 if ( ! post_type_exists( 'membre' ) ) { register_post_type( 'membre', array( 'public' => true ) ); }
-$pt  = get_option( 'cptui_post_types', array() );
+$pt  = array();
 $pt['membre'] = array(
 	'name' => 'membre', 'label' => 'Équipe', 'singular_label' => 'Membre', 'description' => 'Membres de l’équipe Amorino Limoges',
 	'public' => $yes, 'publicly_queryable' => $yes, 'show_ui' => $yes, 'show_in_nav_menus' => $yes, 'delete_with_user' => $no,
@@ -21,7 +21,16 @@ $pt['membre'] = array(
 	'taxonomies' => array(), 'labels' => array( 'add_new_item' => 'Ajouter un membre', 'all_items' => 'Tous les membres' ),
 	'custom_supports' => '', 'enter_title_here' => 'Prénom du membre',
 );
-update_option( 'cptui_post_types', $pt );
+/* Enregistrement dans SCF (Contenus › Types de publication / Taxonomies), sans CPT UI */
+$found = array_filter( acf_get_acf_post_types(), function ( $o ) { return 'membre' === $o['post_type']; } );
+if ( ! $found ) {
+	$r = acf_get_internal_post_type_instance( 'acf-post-type' )->import_cptui_post_type( $pt['membre'] );
+	$log( 'SCF : « membre » créé' . ( isset( $r['ID'] ) ? ' (#' . $r['ID'] . ')' : '' ) );
+} else {
+	$log( 'SCF : « membre » déjà présent' );
+}
+$old = get_option( 'cptui_post_types', array() );
+if ( is_array( $old ) && isset( $old['membre'] ) ) { unset( $old['membre'] ); $old ? update_option( 'cptui_post_types', $old ) : delete_option( 'cptui_post_types' ); }
 
 flush_rewrite_rules();
 /* [IT-11] 3 membres de l'équipe */

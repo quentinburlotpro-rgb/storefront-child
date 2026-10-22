@@ -5,7 +5,7 @@
 defined( 'ABSPATH' ) || exit;
 
 /* ---------------------------------------------------------------------
- * [IT-11] Équipe : champs SCF des membres (CPT « membre » créé avec CPT UI).
+ * [IT-11] Équipe : champs SCF des membres (CPT « membre » créé avec SCF).
  * ------------------------------------------------------------------- */
 function amorino_member_meta( $id ) {
 	$g = function ( $k ) use ( $id ) {

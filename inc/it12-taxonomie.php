@@ -5,7 +5,7 @@
 defined( 'ABSPATH' ) || exit;
 
 /* ---------------------------------------------------------------------
- * [IT-12] Taxonomie « Moment » (CPT UI) : page dédiée via [amorino_moments].
+ * [IT-12] Taxonomie « Moment » (SCF) : page dédiée via [amorino_moments].
  * ------------------------------------------------------------------- */
 add_shortcode( 'amorino_moments', function () {
 	if ( ! taxonomy_exists( 'moment' ) ) {

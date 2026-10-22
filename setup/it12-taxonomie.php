@@ -9,7 +9,7 @@ $pid  = $prod;
 
 $yes = 'true'; $no = 'false';
 if ( ! taxonomy_exists( 'moment' ) ) { register_taxonomy( 'moment', 'product', array( 'hierarchical' => true, 'public' => true ) ); }
-$tx = get_option( 'cptui_taxonomies', array() );
+$tx = array();
 $tx['moment'] = array(
 	'name' => 'moment', 'label' => 'Moments', 'singular_label' => 'Moment', 'description' => 'Moment de dégustation',
 	'public' => $yes, 'publicly_queryable' => $yes, 'hierarchical' => $yes, 'show_ui' => $yes, 'show_in_menu' => $yes,
@@ -18,7 +18,16 @@ $tx['moment'] = array(
 	'show_tagcloud' => $no, 'sort' => $no, 'show_in_quick_edit' => $yes, 'rest_base' => '', 'rest_controller_class' => '',
 	'rest_namespace' => '', 'labels' => array(), 'meta_box_cb' => '', 'default_term' => '', 'object_types' => array( 'product' ),
 );
-update_option( 'cptui_taxonomies', $tx );
+/* Enregistrement dans SCF (Contenus › Types de publication / Taxonomies), sans CPT UI */
+$found = array_filter( acf_get_acf_taxonomies(), function ( $o ) { return 'moment' === $o['taxonomy']; } );
+if ( ! $found ) {
+	$r = acf_get_internal_post_type_instance( 'acf-taxonomy' )->import_cptui_taxonomy( $tx['moment'] );
+	$log( 'SCF : « moment » créé' . ( isset( $r['ID'] ) ? ' (#' . $r['ID'] . ')' : '' ) );
+} else {
+	$log( 'SCF : « moment » déjà présent' );
+}
+$old = get_option( 'cptui_taxonomies', array() );
+if ( is_array( $old ) && isset( $old['moment'] ) ) { unset( $old['moment'] ); $old ? update_option( 'cptui_taxonomies', $old ) : delete_option( 'cptui_taxonomies' ); }
 flush_rewrite_rules();
 /* [IT-12] 3 moments + rattachement des produits */
 $moments = array(
@@ -33,5 +42,5 @@ if ( taxonomy_exists( 'moment' ) ) {
 	}
 	$log( 'Taxonomie « moment » : 3 termes, produits rattachés' );
 } else {
-	WP_CLI::warning( 'Taxonomie « moment » non enregistrée : CPT UI est-il actif ?' );
+	WP_CLI::warning( 'Taxonomie « moment » non enregistrée : SCF est-il actif ?' );
 }
