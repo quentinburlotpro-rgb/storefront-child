@@ -128,3 +128,21 @@ add_action( 'init', function () {
 	remove_action( 'storefront_after_footer', 'storefront_single_product_pagination', 30 );
 } );
 add_filter( 'wc_product_sku_enabled', '__return_false' );
+
+/* Groupes SCF : import automatique en base des fichiers acf-json (local et prod)
+ * pour qu'ils apparaissent dans SCF › Groupes de champs et restent modifiables. */
+add_action( 'admin_init', function () {
+	if ( ! function_exists( 'acf_import_field_group' ) || ! current_user_can( 'manage_options' ) ) { return; }
+	$files = glob( get_stylesheet_directory() . '/acf-json/*.json' );
+	$sig   = md5( implode( '|', array_map( function ( $f ) { return $f . filemtime( $f ); }, $files ) ) );
+	if ( get_option( 'amorino_scf_sync' ) === $sig ) { return; }
+	foreach ( $files as $file ) {
+		$group = json_decode( file_get_contents( $file ), true );
+		if ( ! $group || empty( $group['key'] ) ) { continue; }
+		$post = acf_get_field_group_post( $group['key'] );
+		if ( $post && (int) get_post_modified_time( 'U', true, $post ) >= (int) ( $group['modified'] ?? 0 ) ) { continue; }
+		$group['ID'] = $post ? $post->ID : 0;
+		acf_import_field_group( $group );
+	}
+	update_option( 'amorino_scf_sync', $sig, false );
+} );
